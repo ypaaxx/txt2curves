@@ -75,7 +75,7 @@ void txt2curves::on_okButton_clicked()
     }
 
     double x, y, z = 0;
-    double previousX = 1;
+    double previousX = 100000000;
     bool fuckingBool = 1;//костыль для того, чтобы поток out иземенился всего раз
 
     while (!inputFile.atEnd())
@@ -105,7 +105,7 @@ void txt2curves::on_okButton_clicked()
 
         /*Пишем в out*/
         out << x << " " << y << " " << z << endl;
-        if ( (previousX < x)&&fuckingBool ){ //когда X перестанет падать - меняем out
+        if ( (previousX < x)&&(fuckingBool) ){ //когда X перестанет падать - меняем out
             out.flush();
             out.setDevice(&outputFileLower);
             out << x << " " << y << " " << z << endl;//дописываем прошлую точку ещё раз в новый out
