@@ -38,6 +38,7 @@ void txt2curves::on_okButton_clicked()
     QFile outputFile;
     QTextStream out;
     out.setRealNumberPrecision(6);
+
     if(ui->checkBox->checkState()){
         outputNameUpper = inputName;
         outputNameUpper.chop(4);
@@ -74,8 +75,8 @@ void txt2curves::on_okButton_clicked()
     }
 
     double x, y, z = 0;
-    double previousX = 10000;
-    bool fuckingBool = 1;
+    double previousX = 1;
+    bool fuckingBool = 1;//костыль для того, чтобы поток out иземенился всего раз
 
     while (!inputFile.atEnd())
     {
